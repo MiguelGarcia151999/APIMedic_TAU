@@ -13,7 +13,7 @@ const port = process.env.PORT || 8080
 app.use('/api',require('./routes'))
 
 app.listen(port, () => {
-    console.log(`http://localhost:${port}`)
+    console.log(`Servidor corriendo en el puerto: ${port}`)
 })
 
 dbConnect()
