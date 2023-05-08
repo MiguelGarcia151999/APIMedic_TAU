@@ -1,0 +1,8 @@
+1.- Scaffold
+    -> es para estructurar todo el proyecto en base al modelo MVC (Models, Views, Controllers)
+    models: es para los modelos
+    controllers: hace referencia a los controladores
+    routes: estas seran las vistas 
+    config: para las configuraciones de las bases de datos o mas
+    utils: ahi se almacenaran los helppers
+    storage: alamacenamiento de archivos
