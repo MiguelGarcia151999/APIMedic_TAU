@@ -1,4 +1,4 @@
-
+const { ExpMedicModel } = require('../../../models')
 class expMedicoCRUD{
 
     constructor(connection) {
@@ -8,7 +8,11 @@ class expMedicoCRUD{
     getCollectionMedicExp(){
         return new Promise((resolve, reject) => {
             ExpMedicModel.find({})
-                return resolve({data})
+            if (error) {
+                console.log(error);
+                return reject("error")
+            }
+            resolve({data})
         })
     }
 }

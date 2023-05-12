@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     expMedic.listarExpedientesMedicos().then((result) => {
         response.send(res, result)
     }).catch((error) => {
+        console.log(error)
         response.send(res, error)
     })
 })/*

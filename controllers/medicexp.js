@@ -1,5 +1,5 @@
 const { ExpMedicModel } = require('../models')
-const ExpMedico  = require('../models/MongoDB/process/processExpMedico')
+const ExpMedico  = require('../models/MongoDB/process/processexpMedico')
 const expMedico = new ExpMedico();
 
 class Medicexp {

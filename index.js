@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require("express")
 const cors = require("cors")
-const dbConnect = require('./config/mongo')
 const Connection = require('./config/mongo');
 const morgan = require("morgan");
 const helmet = require("helmet");
@@ -17,7 +16,7 @@ app.use(express.json())
 const port = process.env.PORT || 8080
 
 //* Invocando las rutas
-app.use('/api',require('./server'))
+app.use('/api',require('./server'));
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto: ${port}`)

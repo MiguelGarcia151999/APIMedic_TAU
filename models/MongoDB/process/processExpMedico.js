@@ -1,4 +1,4 @@
-const { ExpMedicModel } = require('../../../models')
+
 const Connection = require('../../../config/mongo');
 const Response = require('../../Constants/response')
 const response = new Response()
@@ -11,9 +11,10 @@ class expedienteMedico {
 
             const connection = new Connection()
             let conexion = undefined
-
+            //console.log(conexion);
             try {
                 conexion = await connection.dbConnect()
+                
             } catch (error) {
                 return reject(response.dataBase(error))
             }
@@ -22,6 +23,7 @@ class expedienteMedico {
                 const expMedicCrud = new expMedicoCRUD(conexion)
                 let result = await expMedicCrud.getCollectionMedicExp()
 
+                resolve(response.success(result))
             } catch (error) {
                 console.log(error)
             }

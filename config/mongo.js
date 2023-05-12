@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const MongoClient = require('mongodb');
+const {MongoClient} = require('mongodb');
 
 //class Connection{
 /*const dbConnect = async () => {
@@ -47,10 +47,10 @@ class Connection {
     dbConnect(){
         return new Promise((resolve, reject) => {
             const URI = process.env.DB_URI
-
+            console.log(URI);
             MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true}).then((client) => {
                 resolve(client);
-                console.log('**** CONEXION SUCCESS****');
+                console.log('**** CONEXION SUCCESS ****');
             }).catch((error) => {
                 console.log('**** ERROR DE CONEXION ****', error.message);
                 console.log(error)
@@ -60,5 +60,4 @@ class Connection {
     }
 }
 
-//module.exports = dbConnect;
 module.exports = Connection;
