@@ -5,15 +5,30 @@ class expMedicoCRUD{
         this.connection = connection
     }
 
-    getCollectionMedicExp(){
+    /*getCollectionMedicExp(){
         return new Promise((resolve, reject) => {
-            ExpMedicModel.find({})
-            if (error) {
-                console.log(error);
-                return reject("error")
-            }
-            resolve({data})
+            let db = this.connection.db(process.env.DB_URI)
+            ExpMedicModel.find({},(error, result) => {
+                if (error) {
+                    console.log(error);
+                    return reject("error")
+                }else{
+                    resolve(result)
+                }
+            })
+            
         })
+    }*/
+
+    getCollectionMedicExp(){
+        async function getAllDocuments() {
+            try {
+                const docs = await ExpMedicModel.find({});
+                resolve(docs)
+            } catch (error) {
+                console.log(error);
+            }
+        }
     }
 }
 

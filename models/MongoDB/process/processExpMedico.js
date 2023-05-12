@@ -11,10 +11,9 @@ class expedienteMedico {
 
             const connection = new Connection()
             let conexion = undefined
-            //console.log(conexion);
+
             try {
                 conexion = await connection.dbConnect()
-                
             } catch (error) {
                 return reject(response.dataBase(error))
             }
