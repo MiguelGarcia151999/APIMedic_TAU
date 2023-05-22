@@ -1,13 +1,14 @@
 require('dotenv').config();
 
-class Constants{
-    mongodb(){
-        return{
+    let mongodb = {
         pass: process.env.MONGO_PASS,
         user: process.env.MONGO_USER,
         name: process.env.MONGO_NAME
-        }
     }
-}
 
-module.exports = Constants
+    let mongodbtest = {
+            db: process.env.MONGO_NAME,
+            collection: process.env.MONGO_COLLECTION
+    }
+
+module.exports = { mongodb, mongodbtest }     

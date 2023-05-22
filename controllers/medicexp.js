@@ -7,14 +7,11 @@ class Medicexp {
     listarExpedientesMedicos(){
         return expMedico.listarExpedientesMedicos()
     }
+
+    ListarExpedienteMedico(id){
+        return expMedico.listarExpendienteMedico(id)
+    }
 }
-/**
- *Todo Obtener todos los expedientes medicos
- */
-const getExpMedicos = async (req, res) => {
-    const data = await ExpMedicModel.find({})
-    res.send({data})
-} 
 
 /**
  *Todo Obtener un solo expediente medico
