@@ -20,11 +20,11 @@ class expedienteMedico {
             
             try {
                 const expMedicCrud = new expMedicoCRUD(conexion)
-                let result = await expMedicCrud.getCollectionMedicExp()
+                let result = expMedicCrud.getCollectionMedicExp()
 
                 resolve(response.success(result))
             } catch (error) {
-                console.log(error)
+                reject(response.processValidation(error))
             }
             
         })
