@@ -1,12 +1,17 @@
 const { ExpMedicModel } = require('../models')
+const ExpMedico  = require('../models/MongoDB/process/processexpMedico')
+const expMedico = new ExpMedico();
 
-/**
- *Todo Obtener todos los expedientes medicos
- */
-const getExpMedicos = async (req, res) => {
-    const data = await ExpMedicModel.find({})
-    res.send({data})
-} 
+class Medicexp {
+
+    listarExpedientesMedicos(){
+        return expMedico.listarExpedientesMedicos()
+    }
+
+    ListarExpedienteMedico(id){
+        return expMedico.listarExpendienteMedico(id)
+    }
+}
 
 /**
  *Todo Obtener un solo expediente medico
@@ -33,4 +38,5 @@ const updateExpMedico = (req, res) => {}
  */
 const deleteExpMedico = (req, res) => {}
 
-module.exports = { getExpMedicos, getExpMedico, createExpMedico, updateExpMedico, deleteExpMedico}
+//module.exports = { getExpMedicos, getExpMedico, createExpMedico, updateExpMedico, deleteExpMedico }
+module.exports = Medicexp;

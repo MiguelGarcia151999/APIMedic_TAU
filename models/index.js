@@ -1,5 +1,5 @@
 const models = {
-    ExpMedicModel: require('./NoSQL/medicexp')
+    ExpMedicModel: require('./MongoDB/medicexp')
 
 }
 
