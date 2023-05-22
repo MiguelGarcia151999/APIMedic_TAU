@@ -20,3 +20,4 @@ app.use('/api',require('./server'));
 
 app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto: ${port}`)
+})
