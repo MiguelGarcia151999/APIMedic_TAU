@@ -6,9 +6,3 @@
     config: para las configuraciones de las bases de datos o mas
     utils: ahi se almacenaran los helppers
     storage: alamacenamiento de archivos
-
-Documentacion PM2 Produccion
-
-1.- pm2 start index.js --name Dev_TAU
-2.- pm2 save
-
