@@ -16,6 +16,10 @@ class Medicexp {
         return expMedico.insertarExpedienteMedico(data)
     }
 
+    eliminarExpedienteMedico(id){
+        return expMedico.eliminarExpedienteMedico(id)
+    }
+
 }
 
 /**

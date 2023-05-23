@@ -40,7 +40,6 @@ class expMedicoCRUD{
     insertMedicExp(body){
         return new Promise(async(resolve, reject) => {
             try {
-                console.log(body)
                 const database = this.connection.db(mongodbtest.db); // Reemplaza con el nombre de tu base de datos
                 const collection = database.collection(mongodbtest.collection); // Reemplaza con el nombre de tu colección
 
@@ -49,7 +48,25 @@ class expMedicoCRUD{
 
                 resolve(result)
             } catch (error) {
-                
+                console.log(error)
+                reject(error)
+            }
+        })
+    }
+
+    deleteMedicExp(id){
+        return new Promise(async(resolve, reject) => {
+            try {
+                const database = this.connection.db(mongodbtest.db); // Reemplaza con el nombre de tu base de datos
+                const collection = database.collection(mongodbtest.collection); // Reemplaza con el nombre de tu colección
+
+                const result = await collection.deleteOne({ _id: new ObjectId(id)});
+                console.log(`Registro eliminado: ${result.deletedCount} documento(s) eliminado(s)`);
+
+                resolve(result)
+            } catch (error) {
+                console.log(error)
+                reject(error)
             }
         })
     }

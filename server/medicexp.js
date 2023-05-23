@@ -44,8 +44,21 @@ router.post('/insertar', (req, res) => {
     })
 })
 
+router.delete('/delete', (req, res) => {
+    let { id } = req.headers
+
+    if((id == undefined)) return response.send(res, response.requestValidation("Parametros indefinidos"));
+    if((id == 0)) response.send(res, response.requestValidation("Parametros incorrectos"));
+
+    expMedic.eliminarExpedienteMedico(id).then((result) => {
+        response.send(res, result)
+    }).catch((error) => {
+        console.log(error)
+        response.send(res, error)
+    })
+})
+
 /*
-router.post('/',createExpMedico)
 router.get('/',updateExpMedico)
 router.get('/',deleteExpMedico)
 */
