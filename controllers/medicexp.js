@@ -11,12 +11,16 @@ class Medicexp {
     ListarExpedienteMedico(id){
         return expMedico.listarExpendienteMedico(id)
     }
-}
 
-/**
- *Todo Obtener un solo expediente medico
- */
-const getExpMedico = (req, res) => {} 
+    insertarExpedienteMedico(data){
+        return expMedico.insertarExpedienteMedico(data)
+    }
+
+    eliminarExpedienteMedico(id){
+        return expMedico.eliminarExpedienteMedico(id)
+    }
+
+}
 
 /**
  *Todo Crear un expediente medico
