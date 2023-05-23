@@ -1,9 +1,6 @@
-const { ExpMedicModel } = require('../../../models')
-const Constants = require('../../Constants/index')
 const { mongodbtest } = require('../../Constants/index')
 const Response = require('../../Constants/response')
-const response = new Response()
-
+const { ObjectId } = require('mongodb');
 class expMedicoCRUD{
 
     constructor(connection) {
@@ -29,13 +26,30 @@ class expMedicoCRUD{
             try {
                 const database = this.connection.db(mongodbtest.db); // Reemplaza con el nombre de tu base de datos
                 const collection = database.collection(mongodbtest.collection); // Reemplaza con el nombre de tu colección
-                console.log(id);
-                const result = await collection.findOne({ _id: id})
 
+                const result = await collection.find({ _id: new ObjectId(id)}).toArray();
                 resolve(result)            
+
             } catch (error) {
                 console.log(error)
                 reject(error)
+            }
+        })
+    }
+
+    insertMedicExp(body){
+        return new Promise(async(resolve, reject) => {
+            try {
+                console.log(body)
+                const database = this.connection.db(mongodbtest.db); // Reemplaza con el nombre de tu base de datos
+                const collection = database.collection(mongodbtest.collection); // Reemplaza con el nombre de tu colección
+
+                const result = await collection.insertOne(body)
+                console.log(`Registro insertado con el ID: ${result.insertedId}`);
+
+                resolve(result)
+            } catch (error) {
+                
             }
         })
     }

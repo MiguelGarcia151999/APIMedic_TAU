@@ -1,7 +1,7 @@
 const express = require('express')
 const Medicexp = require('../controllers/medicexp')
-const Response = require('../models/Constants/response')
 const expMedic = new Medicexp()
+const Response = require('../models/Constants/response')
 const response = new Response()
 const { 
     getExpMedicos, getExpMedico,
@@ -28,13 +28,23 @@ router.get('/:id', (req, res) => {
         response.send(res, result)
     }).catch((error) => {
         console.log(error)
-        response.send(req, error)
+        response.send(res, error)
+    })
+})
+
+router.post('/insertar', (req, res) => {
+    let { body } = req
+
+    if(Object.keys(body).length == 0) return response.send(res, response.requestValidation("Parametros no validos"))
+    expMedic.insertarExpedienteMedico(body).then((result) => {
+        response.send(res, result)
+    }).catch((error) => {
+        console.log(error)
+        response.send(res, error)
     })
 })
 
 /*
-router.get('/',getExpMedicos)
-router.get('/id:',getExpMedico)
 router.post('/',createExpMedico)
 router.get('/',updateExpMedico)
 router.get('/',deleteExpMedico)
