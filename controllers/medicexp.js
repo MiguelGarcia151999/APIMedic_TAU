@@ -20,6 +20,9 @@ class Medicexp {
         return expMedico.eliminarExpedienteMedico(id)
     }
 
+    actualizarExpedienteMedico(){
+        return expMedico.actualizarExpedienteMedico()
+    }
 }
 
 module.exports = Medicexp;

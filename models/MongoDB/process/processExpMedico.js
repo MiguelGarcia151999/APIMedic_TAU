@@ -107,6 +107,28 @@ class expedienteMedico {
         })
     }
 
+    actualizarExpedienteMedico(body, id){
+        return new Promise(async(resolve, reject) => {
+            const connection = new Connection()
+            let conexion = undefined
+
+            try {
+                conexion = await connection.dbConnect()
+            } catch (error) {
+                return reject(response.dataBase(error))
+            }
+
+            try {
+                
+
+
+            } catch (error) {
+                console.log(error)
+                reject(response.processValidation(error))
+            }
+        })
+    }
+
 }
 
 module.exports = expedienteMedico
