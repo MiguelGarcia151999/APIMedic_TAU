@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post('/insertar', (req, res) => {
+router.post('/insert', (req, res) => {
     let { body } = req
 
     if(Object.keys(body).length == 0) return response.send(res, response.requestValidation("Parametros no validos"))
