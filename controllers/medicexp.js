@@ -12,16 +12,16 @@ class Medicexp {
         return expMedico.listarExpendienteMedico(id)
     }
 
-    insertarExpedienteMedico(data){
-        return expMedico.insertarExpedienteMedico(data)
+    insertarExpedienteMedico(body){
+        return expMedico.insertarExpedienteMedico(body)
     }
 
     eliminarExpedienteMedico(id){
         return expMedico.eliminarExpedienteMedico(id)
     }
 
-    actualizarExpedienteMedico(){
-        return expMedico.actualizarExpedienteMedico()
+    actualizarExpedienteMedico(id, body){
+        return expMedico.actualizarExpedienteMedico(id, body)
     }
 }
 

@@ -107,7 +107,7 @@ class expedienteMedico {
         })
     }
 
-    actualizarExpedienteMedico(body, id){
+    actualizarExpedienteMedico(id, body){
         return new Promise(async(resolve, reject) => {
             const connection = new Connection()
             let conexion = undefined
@@ -119,9 +119,11 @@ class expedienteMedico {
             }
 
             try {
-                
+                const expMedicCrud = new expMedicoCRUD(conexion)
+                let result = await expMedicCrud.updateMedicExp(id, body)
 
-
+                resolve(response.success(result))
+                conexion.close()
             } catch (error) {
                 console.log(error)
                 reject(response.processValidation(error))
