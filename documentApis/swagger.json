@@ -1,0 +1,33 @@
+{
+    "swagger": "3.0.1",
+    "info": {
+        "title": "DevServer TAU",
+        "description": "Documentacion correspondiente de las Apis realizadas en el desarrollo del proyeco DevServer_TAU",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+			"email": "eibonsbook151999@gmail.com"
+		},
+        "version": "1.0.0"
+    },
+    "host":"http://localhost:16000/dev/devServerTAU",
+    "tags": [
+        {
+            "name": "Mongo",
+            "description": "Apis que hacen peticiones a la base de mongobd"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": ["Mongo"],
+                "summary": "Hacer una peticion get a la base de datos en mongobd",
+                "description": "Esta api trae todos los registros que se encuentran dentro de la base de datos de mongobd",
+                "operationId": "consultarRegistros",
+                "responses": {
+                    "200": { "description": "Peticion realizada exitosamente"},
+                    "500": { "description": "Error interno de servidor"}
+                }
+            }
+        }
+    }
+}
